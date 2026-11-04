@@ -185,6 +185,19 @@ export default function App() {
                 ))}
               </ScrollView>
             )}
+            {visible.length > 0 && (
+              <Pressable
+                style={s.playAll}
+                accessibilityRole="link"
+                onPress={() => {
+                  setPlaying(false);
+                  const ids = visible.slice(0, 50).map((n) => n.youtubeId).join(',');
+                  Linking.openURL(`https://www.youtube.com/watch_videos?video_ids=${ids}`);
+                }}
+              >
+                <Text style={s.playAllText}>▶ شغّل الكل بيوتيوب (بدون إعلانات مع Premium)</Text>
+              </Pressable>
+            )}
             <FlatList
               data={visible}
               keyExtractor={(n) => n.youtubeId}
@@ -450,6 +463,8 @@ function makeStyles(c: Theme) {
     hint: { color: c.muted, fontSize: 12.5, marginVertical: 8, textAlign: START },
     player: { backgroundColor: c.surface, borderTopWidth: 1, borderTopColor: c.line, paddingVertical: 10, flexGrow: 0, flexShrink: 0 },
     video: { borderRadius: 12, overflow: 'hidden', backgroundColor: '#000' },
+    playAll: { marginTop: 10, marginBottom: 4, borderRadius: 12, paddingVertical: 10, alignItems: 'center', backgroundColor: '#CC0000' },
+    playAllText: { color: '#FFFFFF', fontWeight: '700', fontSize: 14 },
     nowRow: { flexDirection: 'row', alignItems: 'center', gap: 10, marginTop: 8 },
     ytBtn: { borderWidth: 1, borderColor: '#CC0000', borderRadius: 999, paddingVertical: 4, paddingHorizontal: 12 },
     ytBtnText: { color: '#CC0000', fontSize: 13, fontWeight: '600' },
