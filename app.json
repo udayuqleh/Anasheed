@@ -1,25 +1,41 @@
 {
   "expo": {
-    "name": "anasheed-app",
-    "slug": "anasheed-app",
+    "name": "أناشيد",
+    "slug": "anasheed",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anasheed.app",
+      "infoPlist": {
+        "CFBundleDevelopmentRegion": "ar"
+      }
     },
     "android": {
+      "package": "com.anasheed.app",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0E6B57",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
-      },
-      "predictiveBackGestureEnabled": false
+      }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "أناشيد",
+      "shortName": "أناشيد",
+      "lang": "ar",
+      "themeColor": "#0E6B57",
+      "backgroundColor": "#F3F5F1"
+    },
+    "extra": {
+      "supportsRTL": true,
+      "forcesRTL": true
+    },
+    "experiments": {
+      "baseUrl": "/anasheed"
     }
   }
 }
